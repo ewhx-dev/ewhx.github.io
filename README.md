@@ -1,4 +1,4 @@
-# EWHX Website
+# ewhx Website
 
 © 2025 ewhx-dev. All rights reserved.
 
