@@ -28,7 +28,7 @@
       padding:24px 34px;
       transition:background-color .25s ease;
     }
-    /* Projects: card grid used in "Ongoing projects" */
+
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -53,7 +53,6 @@
     .project-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; }
     .tag{ background:rgba(255,255,255,0.03); color:var(--muted); padding:6px 10px; border-radius:999px; font-size:12px; border:1px solid rgba(255,255,255,0.02); }
 
-    /* Header */
     header{
       height:44px;
       display:flex;
@@ -67,12 +66,11 @@
       letter-spacing:0.6px;
       font-size:18px;
     }
-    /* typing/caret for brand */
+
     .brand #typed { display:inline-block; vertical-align:middle; white-space:pre; font-family: inherit; }
     .brand .caret { display:inline-block; width:2px; height:1.05em; background:var(--accent); margin-left:8px; vertical-align:middle; animation:blink 1s steps(2,start) infinite; opacity:0.95; }
     @keyframes blink { 50% { opacity:0 } 100% { opacity:1 } }
 
-    /* Layout */
     .container{
       max-width:1200px;
       margin:0 auto;
@@ -81,8 +79,11 @@
       gap:40px;
       align-items:start;
     }
-
-    /* Left column content */
+    aside{
+      position:sticky;
+      top:24px;
+      align-self:start;
+    }
     h1{
       font-size:56px;
       margin:0 0 8px 0;
@@ -106,7 +107,6 @@
     }
     .text-muted{color:var(--muted);line-height:1.6}
 
-    /* Avatar */
     .avatar{
       width:220px;
       height:220px;
@@ -128,7 +128,6 @@
       background:linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.5));
     }
 
-    /* Skills grid */
     .skills-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -136,7 +135,6 @@
       margin-top:14px;
     }
 
-    /* card/button style */
     .skill{
       background:var(--card);
       border-radius:var(--radius);
@@ -158,7 +156,7 @@
       position:relative;
       overflow:visible;
     }
-    /* hover animation (cursor on button) */
+ 
     .skill:hover{
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 26px 60px rgba(0,0,0,0.65);
@@ -167,12 +165,12 @@
     .skill:active{
       transform: translateY(-2px) scale(0.995);
     }
-    /* micro animations for logo & label on hover */
+   
     .skill:hover .logo{ transform:translateY(-4px) rotate(-6deg) scale(1.03); box-shadow:0 8px 22px rgba(0,0,0,0.5) }
     .logo{ width:56px;height:56px;border-radius:10px; display:flex;align-items:center;justify-content:center; font-weight:700;color:#fff;font-size:14px; flex:0 0 56px; background:transparent; transition:transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s ease; }
     .logo img{ width:40px; height:40px; object-fit:contain; display:block; transition:transform .32s cubic-bezier(.2,.9,.2,1) }
     .skill:hover .logo img{ transform: translateY(-2px) rotate(-6deg) scale(1.02) }
-    /* ensure all skill logos have no colored background (override inline styles) */
+   
     .skills-grid .logo{ background: transparent !important; }
     .skills-grid .logo img{ background: transparent !important; }
 
@@ -182,7 +180,6 @@
     .skill .meta{display:flex;flex-direction:column}
     .skill .content{flex:1}
 
-    /* click animation (brief pop) */
     @keyframes pop-click {
       0% { transform: scale(1) translateY(0); opacity:1; }
       40% { transform: scale(0.98) translateY(2px); opacity:0.98; }
@@ -190,7 +187,6 @@
     }
     .skill.clicked{ animation: pop-click .32s cubic-bezier(.2,.9,.2,1); }
 
-    /* Overlay / modal shown on click */
     .overlay{
       position:fixed;
       inset:0;
@@ -233,14 +229,12 @@
       opacity:1;
     }
 
-    /* center the modal head and animate each piece */
     .modal .m-head{ display:flex; flex-direction:column; gap:12px; align-items:center; width:100%; }
     .modal .m-logo{ width:84px;height:84px;border-radius:14px; display:flex;align-items:center;justify-content:center; flex:0 0 84px; transition: transform .36s cubic-bezier(.2,.9,.2,1), opacity .26s ease; background:transparent; }
     .modal .m-logo img{ width:56px; height:56px; object-fit:contain; display:block; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.5)); }
     .modal h3{ margin:0; font-size:22px; font-weight:800; letter-spacing:0.2px; transform: translateY(8px); opacity:0; transition: transform .36s cubic-bezier(.2,.9,.2,1), opacity .26s ease; }
     .modal p { margin:12px 0 0 0; color:var(--muted); line-height:1.6; font-size:15px; transform: translateY(10px) scale(.98); opacity:0; transition: transform .36s cubic-bezier(.2,.9,.2,1), opacity .26s ease; max-width:780px; }
 
-    /* when overlay shows, animate inner pieces into center */
     .overlay.show .modal .m-logo{ transform: translateY(0) scale(1); opacity:1; transition-delay: 0.03s; }
     .overlay.show .modal h3{ transform: translateY(0); opacity:1; transition-delay: 0.06s; }
     .overlay.show .modal p{ transform: translateY(0) scale(1); opacity:1; transition-delay: 0.09s; }
@@ -257,7 +251,6 @@
     }
     .modal .close:hover{ background:rgba(255,255,255,0.02); color:#fff }
 
-    /* small screens */
     @media (max-width:980px){
       .container{grid-template-columns:1fr; padding-bottom:40px}
       .avatar{width:140px;height:140px;margin:0 auto 8px}
@@ -280,14 +273,14 @@
   </header>
 
   <main class="container">
-    <!-- left column -->
+  
     <div>
       <h1>What's up?</h1>
       <p class="lead">Hello! I am nicho (known as ewhx), the creator of this website. Here, you can find anything about me — projects, skills and a short blog.</p>
 
       <section>
         <h2>Who am I actually?</h2>
-        <p class="text-muted">I'm nicho, from Italy. I started programming in 2020 with JavaScript, driven by my passion for building useful, well‑designed software.</p>
+        <p class="text-muted">I'm nicho, from Italy. I started programming in 2023 with JavaScript, driven by my passion for building useful, well‑designed software.</p>
         <p class="text-muted">Since then I've worked on web apps, backend services and small game projects. I currently split my time between frontend work (React / TypeScript), backend services (Node.js / Python) and systems-level experiments (Rust / C++). I enjoy improving developer experience, shipping pragmatic tooling and contributing to open source.</p>
         <ul class="text-muted" style="margin-top:8px">
           <li>Focus areas: Frontend engineering, backend APIs, and systems programming.</li>
@@ -298,10 +291,10 @@
         <h2>My Skills</h2>
         <p class="text-muted">I work across frontend, backend and systems programming. Click any language below to read a short note about how I use it.</p>
 
-        <p class="text-muted" style="margin-top:10px">Experience highlights: 3+ years with JavaScript and Python; regular use of TypeScript for large codebases; systems work in C, C++ and Rust. Common tools and frameworks I use: React, Next.js, Express, FastAPI, PostgreSQL, Docker, and GitHub Actions.</p>
+        <p class="text-muted" style="margin-top:10px">Experience highlights: 2+ years with JavaScript and Python; regular use of TypeScript for large codebases; systems work in C, C++ and Rust. Common tools and frameworks I use: React, Next.js, Express, FastAPI, PostgreSQL, Docker, and GitHub Actions.</p>
 
         <div class="text-muted" style="margin-top:10px">
-          <p style="margin-top:8px;color:var(--muted);"><strong>Note:</strong> I know Python, JavaScript, Node.js, Java and C# very, very well.</p>
+          <p style="margin-top:8px;color:var(--muted);"><strong>Note:</strong> I know Python, JavaScript, Node.js, Java and C very, very well.</p>
         </div>
 
         <div class="skills-grid" aria-hidden="false">
@@ -318,7 +311,7 @@
 
           <button class="skill" type="button"
                   data-title="JavaScript"
-                  data-desc="Interactive front-end logic, DOM manipulation and tooling — I use JavaScript extensively for UI behavior and client-side logic."
+                  data-desc="Interactive front-end logic, DOM manipulation and tooling — I use JavaScript extensively for UI behavior and client-side logic and for Discord Bots."
                   data-logo="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
             <div class="logo" style="background:linear-gradient(135deg,#f0db4f,#d1a21f);color:#111">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" loading="lazy">
@@ -381,7 +374,7 @@
                   data-desc="Safe systems programming and high-performance tooling — I experiment with Rust for concurrency and memory-safety."
                   data-logo="https://cdn.simpleicons.org/rust/ffffff">
             <div class="logo" style="background:linear-gradient(135deg,#b03b00,#8a2b00);">
-              <!-- switched to simpleicons white rust for visibility -->
+
               <img src="https://cdn.simpleicons.org/rust/ffffff" alt="Rust logo" loading="lazy">
             </div>
             <div class="content"><div class="meta"><div class="label">Rust</div></div></div>
@@ -422,7 +415,7 @@
                   data-desc="Version control, branching and collaborative workflows — Git is central to my development process."
                   data-logo="https://cdn.simpleicons.org/git/ffffff">
             <div class="logo" style="background:#f34f29">
-              <!-- white git icon for contrast -->
+             
               <img src="https://cdn.simpleicons.org/git/ffffff" alt="Git logo" loading="lazy">
             </div>
             <div class="content"><div class="meta"><div class="label">Git</div></div></div>
@@ -430,7 +423,6 @@
 
         </div>
 
-        <!-- overlay/modal (hidden until a language is clicked) -->
         <div id="skillOverlay" class="overlay" role="dialog" aria-modal="true" aria-hidden="true">
           <div class="modal" role="document" aria-labelledby="modalTitle">
             <div class="m-head">
@@ -460,13 +452,12 @@
               const desc = btn.getAttribute('data-desc') || '';
               const logo = btn.getAttribute('data-logo') || '';
 
-              // set content
               modalTitle.textContent = title;
               modalDesc.textContent = desc;
               if (logo) {
                 modalLogoImg.src = logo;
                 modalLogoImg.alt = title + ' logo';
-                // copy inline background style from the small logo if present
+           
                 const smallLogo = btn.querySelector('.logo');
                 modalLogoWrap.style.background = smallLogo ? smallLogo.getAttribute('style') : 'transparent';
               } else {
@@ -475,19 +466,15 @@
                 modalLogoWrap.style.background = 'transparent';
               }
 
-              // animation: mark clicked button briefly
               btn.classList.add('clicked');
               setTimeout(() => btn.classList.remove('clicked'), 380);
-
-              // show overlay/modal
+           
               overlay.classList.add('show');
               overlay.setAttribute('aria-hidden', 'false');
-
-              // lock scroll
+         
               document.documentElement.style.overflow = 'hidden';
               document.body.style.overflow = 'hidden';
 
-              // a11y: focus close button
               closeBtn.focus();
             }
 
@@ -504,7 +491,6 @@
                 openModal(btn);
               });
 
-              // keyboard support: Enter / Space opens
               btn.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
@@ -513,7 +499,6 @@
               });
             });
 
-            // close handlers
             closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeModal(); });
             overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
             document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('show')) closeModal(); });
@@ -523,31 +508,47 @@
 
       </section>
 
-      <!-- Ongoing projects -->
-      <section>
-        <h2>Ongoing projects</h2>
-        <p class="text-muted">Here are some of the projects I'm currently working on. These represent my ongoing work and interests in development.</p>
+     <section>
+  <h2>Ongoing projects</h2>
+  <p class="text-muted">Here are some of the projects I'm currently working on. These represent my ongoing work and interests in development.</p>
 
-        <div class="projects-grid" aria-hidden="false">
-          <article class="project-card" role="article" aria-label="Tags Hub BOT">
-            <div class="project-logo" aria-hidden="true">
-              <img src="assets/tags-hub.webp" alt="Tags Hub BOT logo" loading="lazy" style="width:64px;height:64px;object-fit:contain;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4))">
-            </div>
-            <div>
-              <h3 class="project-title">Tags Hub BOT</h3>
-              <p class="project-desc">A Discord bot for my community server that manages tags, quick replies and basic moderation utilities. It's built with Node.js (and TypeScript) — I maintain and actively develop its features.</p>
-            </div>
-            <div class="project-tags" aria-hidden="true">
-              <span class="tag">Node.js</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">Discord.js</span>
-              <span class="tag">Bot</span>
-            </div>
-          </article>
-        </div>
-      </section>
+  <div class="projects-grid" aria-hidden="false">
+    <article class="project-card" role="article" aria-label="Tags Hub BOT">
+      <div class="project-logo" aria-hidden="true">
+        <img src="assets/tags-hub.webp" alt="Tags Hub BOT logo" loading="lazy" style="width:64px;height:64px;object-fit:contain;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4))">
+      </div>
+      <div>
+        <h3 class="project-title">Tags Hub BOT</h3>
+        <p class="project-desc">A Discord bot for my community server that manages tags, quick replies and basic moderation utilities. It's built with Node.js (and TypeScript) — I maintain and actively develop its features.</p>
+      </div>
+      <div class="project-tags" aria-hidden="true">
+        <span class="tag">Node.js</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Discord.js</span>
+        <span class="tag">Community</span>
+        <span class="tag">Bot</span>
+      </div>
+    </article>
 
-      <!-- Get in touch (moved inside main column to match other sections) -->
+    <article class="project-card" role="article" aria-label="New Life Bot">
+      <div class="project-logo" aria-hidden="true">
+        <img src="assets/new-life.webp" alt="New Life Bot logo" loading="lazy" style="width:64px;height:64px;object-fit:contain;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4))">
+      </div>
+      <div>
+        <h3 class="project-title">New Life BOT</h3>
+        <p class="project-desc">A community-driven Discord bot focused on engagement, entertainment, and growth. It provides minigames, economy systems, levels, and interactive social tools that make servers more active and connected.</p>
+      </div>
+      <div class="project-tags" aria-hidden="true">
+        <span class="tag">Node.js</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Discord.js</span>
+        <span class="tag">Community</span>
+        <span class="tag">Bot</span>
+      </div>
+    </article>
+  </div>
+</section>
+
       <section>
         <h2>Get in touch</h2>
         <p class="text-muted">If you want to get in touch, feel free to reach out through any of the following methods. I'm happy to help or chat!</p>
@@ -578,14 +579,12 @@
 
      </div>
  
-     <!-- right column (avatar / actions) -->
      <aside>
-      <!-- using the existing file name: assets/download (2).jpeg -->
+    
       <div class="avatar" id="avatar" style="background-image: url('assets/download%20(2).jpeg');" role="img" aria-label="nichoo avatar"></div>
      </aside>
    </main>
  
-  <!-- typing effect for header + document.title -->
   <script>
     (function () {
       const el = document.getElementById('typed');
@@ -597,7 +596,7 @@
       let forward = true;
 
       function setTitle(val) {
-        // keep a short stable suffix so title isn't empty for accessibility/SEO
+      
         document.title = val || 'ewhx!! — personal blog';
       }
 
@@ -625,13 +624,11 @@
         }
       }
 
-      // start after a short delay so page feels settled
       el.textContent = '';
       setTimeout(step, 400);
     })();
   </script>
 
- <!-- Footer -->
 <footer style="text-align: left; padding: 10px; background-color: #151516; color: #fff; font-size: 14px;">
   © 2025 ewhx-dev. All rights reserved.
 </footer>
